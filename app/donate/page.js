@@ -46,10 +46,10 @@ function DonateContent() {
               Satyasaksha Foundation operates on a model of absolute transparency. 100% of public donations are routed directly to field projects, while administrative costs are covered by our founding board.
             </p>
             <ul className={styles.impactList}>
-              <li><strong>₹500</strong> provides books for a rural student for a year.</li>
-              <li><strong>₹1,500</strong> feeds a rescued animal for a month.</li>
-              <li><strong>₹5,000</strong> plants and maintains 100 native trees.</li>
-              <li><strong>₹10,000</strong> funds a medical camp for an entire village.</li>
+              <li><strong>₹500</strong> — Supports educational materials and outreach activities.</li>
+              <li><strong>₹1,000</strong> — Supports citizen-science and biodiversity documentation activities.</li>
+              <li><strong>₹2,500</strong> — Supports field-based conservation and awareness activities.</li>
+              <li><strong>₹5,000</strong> — Helps support a community or student-focused conservation programme.</li>
             </ul>
             <p className={styles.taxNote}>
               * All donations are eligible for tax exemption under Section 80G of the Income Tax Act.

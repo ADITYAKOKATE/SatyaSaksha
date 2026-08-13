@@ -63,10 +63,10 @@ export default function GetInvolvedPage() {
           <div className={`reveal reveal-delay-2 ${styles.card}`}>
             <div className={styles.cardHeader}>
               <div className={styles.icon}>🌱</div>
-              <h2 className="heading-md">Sponsor a Project</h2>
+              <h2 className="heading-md">Support a Conservation Project</h2>
             </div>
             <p className={styles.desc}>
-              Take direct responsibility for a specific initiative. Fund an entire classroom, sponsor a medical camp, or adopt a section of a wildlife corridor.
+              Support a specific initiative and help us create measurable impact in wildlife conservation, biodiversity, environmental education, citizen science, habitat restoration, and community-based conservation.
             </p>
             <ul className={styles.list}>
               <li>Direct, targeted financial impact</li>
