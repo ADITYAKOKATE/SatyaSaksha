@@ -89,7 +89,7 @@ export default function ImpactPage() {
             <div className={`reveal ${styles.narrativeContent}`}>
               <h2 className="heading-lg" style={{ color: 'var(--gold-light)', marginBottom: 'var(--space-6)' }}>Beyond the Numbers</h2>
               <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '1.1rem', lineHeight: 1.8, marginBottom: 'var(--space-4)' }}>
-                While statistics provide a measurable snapshot of our work, the true impact is found in the stories of the lives we've touched. It's in the eyes of a rescued elephant returning to the wild, the smile of a child holding their first textbook, and the pride of a woman earning her own income.
+                While statistics provide a measurable snapshot of our work, the true impact is found in the stories of the lives we&apos;ve touched. It&apos;s in the eyes of a rescued elephant returning to the wild, the smile of a child holding their first textbook, and the pride of a woman earning her own income.
               </p>
               <p style={{ color: 'rgba(255,255,255,0.8)', fontSize: '1.1rem', lineHeight: 1.8 }}>
                 We are committed to rigorous monitoring and evaluation, ensuring that every rupee donated is maximized for ecological and social return on investment.

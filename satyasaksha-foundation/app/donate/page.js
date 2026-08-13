@@ -1,10 +1,10 @@
 'use client';
-import { useState } from 'react';
+import { useState, Suspense } from 'react';
 import { useReveal } from '@/hooks/useReveal';
 import { useRouter, useSearchParams } from 'next/navigation';
 import styles from './page.module.css';
 
-export default function DonatePage() {
+function DonateContent() {
   useReveal();
   const searchParams = useSearchParams();
   const preselectedAmount = searchParams.get('amount');
@@ -118,5 +118,13 @@ export default function DonatePage() {
       </section>
 
     </div>
+  );
+}
+
+export default function DonatePage() {
+  return (
+    <Suspense fallback={<div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--gold-light)' }}>Loading...</div>}>
+      <DonateContent />
+    </Suspense>
   );
 }

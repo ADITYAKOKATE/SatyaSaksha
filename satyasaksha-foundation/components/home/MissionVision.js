@@ -11,7 +11,7 @@ export default function MissionVision() {
         
         {/* Central Quote Panel */}
         <div className={`reveal ${styles.quotePanel}`}>
-          <div className={styles.quoteMark}>"</div>
+          <div className={styles.quoteMark}>&quot;</div>
           <h2 className={`heading-lg ${styles.quoteText}`}>
             The witness of truth — committed to protecting nature, empowering communities and acting with compassion.
           </h2>

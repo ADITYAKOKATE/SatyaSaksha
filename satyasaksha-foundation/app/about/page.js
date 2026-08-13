@@ -40,7 +40,7 @@ export default function AboutPage() {
                 Founded with a deep commitment to truth and environmental stewardship, the Satyasaksha Foundation began as a small collective of conservationists and educators. Today, we have grown into a nationwide movement, bound by the simple belief that every action, no matter how small, can protect a life and preserve our natural world.
               </p>
               <p>
-                Our name, meaning "the witness of truth," dictates our operational transparency. We don't just advocate for change; we act. Whether it is reforesting barren lands, rescuing injured wildlife, or building schools in remote villages, our work is a testament to what collective human compassion can achieve.
+                Our name, meaning &quot;the witness of truth,&quot; dictates our operational transparency. We don&apos;t just advocate for change; we act. Whether it is reforesting barren lands, rescuing injured wildlife, or building schools in remote villages, our work is a testament to what collective human compassion can achieve.
               </p>
             </div>
             <div className={`reveal reveal-delay-2 ${styles.storyImageCol}`}>
