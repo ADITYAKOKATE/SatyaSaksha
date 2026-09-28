@@ -1,9 +1,9 @@
 'use client';
 import { useState, useEffect } from 'react';
-import { PageHeader, Card, Button, Field, Input, ConfirmButton, Modal, useToast, SkeletonList, EmptyState } from '@/components/admin/ui';
+import { PageHeader, Card, Button, Field, Input, ConfirmButton, Modal, useToast, SkeletonList, EmptyState, ImageUploader, Select } from '@/components/admin/ui';
 import styles from './page.module.css';
 
-const emptyForm = { id: '', label: '', value: '', prefix: '', suffix: '', icon: '' };
+const emptyForm = { id: '', label: '', value: '', prefix: '', suffix: '', icon: '', iconType: 'emoji' };
 
 export default function AdminStatsPage() {
   const [stats, setStats] = useState([]);
@@ -27,7 +27,7 @@ export default function AdminStatsPage() {
   const openNew = () => { setEditing(null); setForm(emptyForm); setModalOpen(true); };
   const openEdit = (stat) => {
     setEditing(stat);
-    setForm({ id: stat.id, label: stat.label, value: stat.value, prefix: stat.prefix || '', suffix: stat.suffix || '', icon: stat.icon });
+    setForm({ id: stat.id, label: stat.label, value: stat.value, prefix: stat.prefix || '', suffix: stat.suffix || '', icon: stat.icon, iconType: stat.icon?.startsWith('http') ? 'image' : 'emoji' });
     setModalOpen(true);
   };
 
@@ -74,14 +74,26 @@ export default function AdminStatsPage() {
 
       <Modal open={modalOpen} onClose={() => setModalOpen(false)} title={editing ? 'Edit Stat' : 'New Stat'}>
         <form onSubmit={handleSubmit} className={styles.form}>
-          <div className={styles.fieldRow}>
+                    <div className={styles.fieldRow}>
             <Field label="ID" required hint="A short unique key, e.g. volunteers">
               <Input required value={form.id} onChange={(e) => setForm((p) => ({ ...p, id: e.target.value }))} />
             </Field>
-            <Field label="Icon (emoji)" required>
-              <Input required placeholder="🌱" value={form.icon} onChange={(e) => setForm((p) => ({ ...p, icon: e.target.value }))} />
+            <Field label="Icon Type" required>
+              <Select value={form.iconType} onChange={(e) => setForm(p => ({ ...p, iconType: e.target.value, icon: '' }))}>
+                <option value="emoji">Emoji</option>
+                <option value="image">Image (JPG/PNG)</option>
+              </Select>
             </Field>
           </div>
+          {form.iconType === 'emoji' ? (
+            <Field label="Icon (emoji)" required>
+              <Input required placeholder="e.g. 🌍" value={form.icon} onChange={(e) => setForm((p) => ({ ...p, icon: e.target.value }))} />
+            </Field>
+          ) : (
+            <Field label="Icon (Image)" required>
+              <ImageUploader folder="stats" value={form.icon} onChange={(url) => setForm((p) => ({ ...p, icon: url }))} />
+            </Field>
+          )}
           <Field label="Label" required>
             <Input required placeholder="e.g. Trees Planted" value={form.label} onChange={(e) => setForm((p) => ({ ...p, label: e.target.value }))} />
           </Field>
@@ -110,7 +122,7 @@ export default function AdminStatsPage() {
           {stats.map((stat) => (
             <Card key={stat._id} className={styles.card}>
               <div className={styles.cardTop}>
-                <span className={styles.icon}>{stat.icon}</span>
+                <span className={styles.icon}>{stat.icon?.startsWith('http') ? <img src={stat.icon} alt="icon" style={{width:'32px', height:'32px', objectFit:'contain'}} /> : stat.icon}</span>
                 <ConfirmButton onConfirm={() => handleDelete(stat._id)} loading={saving === stat._id} />
               </div>
               <p className={styles.value}>{stat.prefix}{stat.value.toLocaleString()}{stat.suffix}</p>

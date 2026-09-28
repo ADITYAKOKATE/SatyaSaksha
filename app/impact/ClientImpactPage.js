@@ -98,7 +98,13 @@ export default function ClientImpactPage({ stats, workHighlights = [], content }
           <div className={styles.statsGrid}>
             {stats.map((stat, i) => (
               <div key={stat.id || stat._id} className={`reveal reveal-delay-${(i % 4) + 1} ${styles.statCard}`}>
-                <div className={styles.icon}>{stat.icon}</div>
+                <div className={styles.icon}>
+                  {stat.icon?.startsWith('http') ? (
+                    <img src={stat.icon} alt={stat.label || 'icon'} style={{ width: '48px', height: '48px', objectFit: 'contain' }} />
+                  ) : (
+                    stat.icon
+                  )}
+                </div>
                 <div className={styles.numberWrap}>
                   {stat.prefix}<Counter targetValue={stat.value} />{stat.suffix}
                 </div>
